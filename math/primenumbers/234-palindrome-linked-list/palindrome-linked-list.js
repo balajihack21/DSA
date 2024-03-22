@@ -12,11 +12,9 @@
 var isPalindrome = function(head) {
     let fast=head
    let arr=[]
-   let cnt=0
      while(fast!=null){
         arr.push(fast.val)
         fast=fast.next
-        cnt++
      }
    console.log(arr)
 
