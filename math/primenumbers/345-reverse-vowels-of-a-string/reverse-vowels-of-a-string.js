@@ -2,28 +2,26 @@
  * @param {string} s
  * @return {string}
  */
-var reverseVowels = function(s) {
-    let str = s.split('');
-    let vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+var reverseVowels = function(nums) {
 
-    let i = 0;
-    let j = str.length - 1;
+    let arr=['a','e','i','o','u','A','E','I','O','U']
+    let s=nums.split('')
+    let i=0
+    let j=s.length-1
 
-    while (i < j) {
-        while (i < j && !vowels.has(str[i].toLowerCase())) {
-            i++;
+    while(i<j){
+        while(i<j && arr.indexOf(s[i]) ==-1){
+            i++
+        }
+        while(i<j && arr.indexOf(s[j]) ==-1){
+            j--
         }
 
-        while (i < j && !vowels.has(str[j].toLowerCase())) {
-            j--;
-        }
 
-        [str[i], str[j]] = [str[j], str[i]];
-
-        i++;
-        j--;
+        [s[i],s[j]]=[s[j],s[i]]
+        i++
+        j--
     }
 
-    return str.join('');
-
+    return s.join('')
 };
