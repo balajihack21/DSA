@@ -21,19 +21,13 @@ var findTheDifference = function(s, t) {
 
   for(let i=0;i<t.length;i++){
             if(map[t[i]]){
-                map[t[i]]-=1
+                map[t[i]]--
             }
             else{
                 return t[i]
             }
   }
 
-
-//   for(let m in map){
-//     if(map[m]<0){
-//         return m
-//     }
-//   }
 
   return ''
 // console.log(map)
