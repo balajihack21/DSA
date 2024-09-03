@@ -5,18 +5,18 @@
  */
 var numberOfChild = function(n, k) {
     let dir=1
-    let ind=1
+    let ind=0
     let t=0
     //n=5 ,k=6
     while(t!=k){
-        if(ind==1){
+        if(ind==0){
             dir=1
         }
-        else if(ind==n){
+        else if(ind==n-1){
             dir=-1
         }
         ind+=dir //1 2 3 4 3 2
         t++//1 2 3 4 5 6
     }
-    return ind-1
+    return ind
 };
