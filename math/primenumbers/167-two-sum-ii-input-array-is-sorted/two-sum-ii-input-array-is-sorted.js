@@ -4,6 +4,7 @@
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
+    
     let i=0
     let j=numbers.length-1
 
@@ -12,7 +13,7 @@ var twoSum = function(numbers, target) {
             return [i+1,j+1]
         }
         else if(numbers[i]+numbers[j]>target){
-            j--
+                j--
         }
         else{
             i++
