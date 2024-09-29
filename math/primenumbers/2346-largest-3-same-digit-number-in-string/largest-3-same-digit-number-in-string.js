@@ -3,14 +3,18 @@
  * @return {string}
  */
 var largestGoodInteger = function(num) {
-    let str=""
+    
+    let max=""
     for(let i=1;i<num.length;i++){
-        if(num[i]==num[i+1] && num[i]==num[i-1]){
-            str1=num[i]+num[i-1]+num[i+1]
-            if(str1>str){
-                str=str1
-            }
+      let res=""
+      if(num[i]==num[i-1] && num[i]==num[i+1]){
+        res+=num[i]+num[i-1]+num[i+1]
+      }
+        // console.log(res)
+        if(res>max){
+            max=res
         }
     }
-        return str 
+  console.log(max)
+  return max
 };
