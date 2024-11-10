@@ -16,8 +16,9 @@ var getCommon = function(nums1, nums2) {
         }
         else{
             res.push(nums1[i])
-            i++
-            j++
+            break
+            // i++
+            // j++
         }
    }
 
