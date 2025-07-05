@@ -3,23 +3,17 @@
  * @return {number}
  */
 var findLucky = function(arr) {
-    let map={}
-    let max=-1
+    let a=new Array(500).fill(0)
 
     for(let i=0;i<=arr.length-1;i++){
-        if(!map[arr[i]]){
-            map[arr[i]]=1
-        }
-        else{
-            map[arr[i]]+=1
+        a[arr[i]]++
+    }
+
+    for(let i=a.length-1;i>0;i--){
+        if(i==a[i]){
+            return a[i]
         }
     }
 
-       for(let m in map){
-          if(map[m]==m){
-            max=map[m]
-          }
-       }
-
-       return max
+    return -1
 };
