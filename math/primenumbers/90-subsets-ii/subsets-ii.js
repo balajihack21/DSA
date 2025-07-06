@@ -3,7 +3,9 @@
  * @return {number[][]}
  */
 var subsetsWithDup = function(nums,i=0,res=[],r=[]) {
-   nums.sort((a,b)=>{return a-b})
+   if(i==0){
+    nums.sort((a,b)=>{return a-b})
+   }
 
     if(i==nums.length){
         res.push([...r])
