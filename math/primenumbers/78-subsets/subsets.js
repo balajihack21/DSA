@@ -2,17 +2,19 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums,res=[],i=0) {
-    if(nums.length==i){
-        return  [res]
+var subsets = function(nums) {
+    let res = [[]];
+
+    for (let i = 0; i < nums.length; i++) {
+        let size = res.length;   // freeze current size
+
+        for (let j = 0; j < size; j++) {
+            let c = res[j];                 // existing subset
+            let newSubset = [...c];         // create a copy
+            newSubset.push(nums[i]);        // add current element
+            res.push(newSubset);            // add new subset
+        }
     }
-  
 
-  let c=nums[i]
-//   nums.shift()
-  let w=subsets(nums,[...res,c],i+1)
-  let wi=subsets(nums,res,i+1)
-
-  return w.concat(wi)
-
+    return res;
 };
