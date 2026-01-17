@@ -4,32 +4,29 @@
  * @return {character}
  */
 var findTheDifference = function(s, t) {
-    // let arr=new Array(26).fill(0)
+    let map={}
 
-    // for(let i=0;i<t.length;i++){
-    //     arr[t.charCodeAt(i)-97]++
-    //     if(i<s.length){
-    //         arr[s.charCodeAt(i)-97]--
-    //     }
-    // }
-
-    // for (let i = 0; i < arr.length; i++) {
-    //     if (arr[i] > 0) {
-    //         return String.fromCharCode(i + 97); // Convert back to character
-    //     }
-    // }
-
-
-
-    let sum=0
 
     for(let i=0;i<t.length;i++){
-        sum+=t.charCodeAt(i)
-
-        if(i<s.length){
-            sum-=s.charCodeAt(i)
+        if(map[t[i]]){
+            map[t[i]]++
+        }
+        else{
+            map[t[i]]=1
         }
     }
 
-   return String.fromCharCode(sum)
+    console.log(map)
+for(let i=0;i<s.length;i++){
+        if(map[s[i]]){
+            map[s[i]]--
+        }
+    }
+
+    
+    for(let m in map){
+        if(map[m]!=0){
+            return m
+        }
+    }
 };
