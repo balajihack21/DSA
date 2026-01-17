@@ -3,43 +3,40 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-    let res=[]
+    let res = [];
 
-    nums.sort((a,b)=>{return a-b})
-    for(let k=0;k<nums.length;k++){
-        let i=k+1
-        let j=nums.length-1
-        if(nums[k]==nums[k-1]){
-            continue
-        }
-        while(i<j){
-            let sum=nums[k]+nums[i]+nums[j]
-            if(sum==0){
-                let trip=[]
-                trip.push(nums[k])
-                trip.push(nums[i])
-                trip.push(nums[j])
-                res.push(trip)
-                i++
-                j--
-                while(i<j && nums[i]==nums[i-1]){
-                    i++
-                }
+    function twosum(nums, target, i, j) {
+        while (i < j) {
+            let sum = nums[i] + nums[j];
 
-                while(i<j && nums[j]==nums[j+1]){
-                    j--
-                }
-            }
-            else if(sum<0){
-                i++
-            }
-            else{
-                j--
-            }
+            if (sum > target) {
+                j--;
+            } 
+            else if (sum < target) {
+                i++;
+            } 
+            else {
+                res.push([-target, nums[i], nums[j]]);
 
+                // move pointers once
+                i++;
+                j--;
+
+                // skip duplicates
+                while (i < j && nums[i] === nums[i - 1]) i++;
+                while (i < j && nums[j] === nums[j + 1]) j--;
+            }
         }
     }
 
-    console.log(res)
-    return res
+    nums.sort((a, b) => a - b);
+
+    for (let i = 0; i < nums.length; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+        let target = -nums[i];
+        twosum(nums, target, i + 1, nums.length - 1);
+    }
+
+    return res;
 };
