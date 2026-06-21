@@ -3,26 +3,26 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    
-    let mystack=[]
+    let stack=[]
 
     for(let i=0;i<s.length;i++){
-        if(s[i]=='(' || s[i]=='{' || s[i]=='['){
-            mystack.push(s[i])
+
+        if(s[i]==')' && stack[stack.length-1]=='('){
+            stack.pop()
+        }
+        else if(s[i]==']' && stack[stack.length-1]=='['){
+            stack.pop()
+        }
+        else if(s[i]=='}' && stack[stack.length-1]=='{'){
+            stack.pop()
         }
         else{
-            if(s[i]==')' && mystack[mystack.length-1]!='('){
-                return false
-            }
-            if(s[i]=='}' && mystack[mystack.length-1]!='{'){
-                return false
-            }
-            if(s[i]==']' && mystack[mystack.length-1]!='['){
-                return false
-            }
-            mystack.pop()
+            stack.push(s[i])
         }
-    }
 
-    return mystack.length==0
+
+    }
+     console.log(stack.length)    
+
+     return stack.length==0
 };
