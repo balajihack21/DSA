@@ -3,21 +3,22 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let map={}
+    let vote=0
+    let e=0
 
     for(let i=0;i<nums.length;i++){
-        if(map[nums[i]]){
-            map[nums[i]]++
+        if(vote==0){
+            e=nums[i]
+        }
+        if(e==nums[i]){
+            vote++
         }
         else{
-            map[nums[i]]=1
+            vote--
         }
+
+        
     }
-
-
-   for(let m in map){
-       if(map[m]>Math.floor(nums.length/2)){
-        return Number(m)
-       }
-   }
+    
+    return e
 };
