@@ -4,55 +4,51 @@
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    function last(arr,target){
-        let tar=-1
-        let i=0
-        let j=arr.length-1
-while(i<=j){
-  
-  
-  let mid=Math.floor((i+j)/2)
-  
-  if(arr[mid]<target){
-    i=mid+1
-  }
-  else if(arr[mid]>target){
-    j=mid-1
-  }
-  else{
-    tar=mid
-    i=mid+1
-  }
-}
-return tar
+
+    let f=-1
+    let l=-1
+
+
+    let s=0
+    let e=nums.length-1
+
+    while(s<=e){
+        let mid=Math.floor((s+e)/2)
+
+        if(nums[mid]==target){
+            f=mid
+            e=mid-1
+        }
+        else if(nums[mid]>target){
+            e=mid-1
+        }
+
+        else{
+            s=mid+1
+        }
     }
 
-    function first(arr,target){
-let tar=-1
-let i=0
+  s=0
+  e=nums.length-1
 
-let j=arr.length-1
+      while(s<=e){
+        let mid=Math.floor((s+e)/2)
 
-while(i<=j){
-  let mid=Math.floor((i+j)/2)
-  
-  
-  if(arr[mid]>target){
-    j=mid-1
-  }
-  else if(arr[mid]<target){
-    i=mid+1
-  }
-  else{
-    tar=mid
-    j=mid-1
-  }
-}
+        if(nums[mid]==target){
+            l=mid
+            s=mid+1
+        }
+        else if(nums[mid]>target){
+            e=mid-1
+        }
 
-return tar
+        else{
+            s=mid+1
+        }
     }
 
-return [first(nums,target),last(nums,target)]
-   
+    console.log(f,l)
 
+    return [f,l]
+    
 };
