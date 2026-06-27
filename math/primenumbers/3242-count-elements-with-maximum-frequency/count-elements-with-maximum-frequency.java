@@ -5,7 +5,7 @@ class Solution {
             }
 
         int n = nums.length;
-        int[] arr = new int[128];
+        int[] arr = new int[101];
         int max = Integer.MIN_VALUE;
         int sum=0;
 
