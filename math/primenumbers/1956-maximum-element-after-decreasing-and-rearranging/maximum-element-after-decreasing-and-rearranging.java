@@ -9,12 +9,8 @@ class Solution {
 
         for(int i=1;i<arr.length;i++){
             current=arr[i];
-            if(current==previous+1){
+            if(current<=previous+1){
                 previous=current;
-            }
-            else if(current<previous+1){
-                previous=current;
-
             }
             else{
                  previous=previous+1;
