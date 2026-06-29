@@ -5,7 +5,6 @@ class Solution {
         for(int i=0;i<weights.length;i++){
             sum+=weights[i];
             
-            
             if(sum>n){
                 res++;
                 sum=weights[i];
