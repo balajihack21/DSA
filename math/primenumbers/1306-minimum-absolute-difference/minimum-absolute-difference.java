@@ -7,7 +7,7 @@ class Solution {
         int min=Integer.MAX_VALUE;
 
         for(int i=1;i<arr.length;i++){
-            int temp=Math.abs(arr[i]-arr[i-1]);
+            int temp=arr[i]-arr[i-1];
             if(temp<min){
                 min=temp;
             }
@@ -15,7 +15,7 @@ class Solution {
 
         for(int i=1;i<arr.length;i++){
             List<Integer> res=new ArrayList<>();
-            int temp=Math.abs(arr[i]-arr[i-1]);
+            int temp=arr[i]-arr[i-1];
             if(temp==min){
                 res.add(arr[i-1]);
                 res.add(arr[i]);
