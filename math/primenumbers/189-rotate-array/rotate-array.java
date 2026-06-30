@@ -1,22 +1,26 @@
 class Solution {
+    private static void swap(int[] arr,int i,int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
+    private static void reverse(int[] nums, int i,int j){
+        j=j-1;
+        
+        while(i<j){
+            swap(nums,i,j);
+            i++;
+            j--;
+        }
+    }
     public void rotate(int[] nums, int k) {
-        int res[]=new int[nums.length];
-        int n=nums.length;
-        k=k%n;
+        k %= nums.length;
 
-        int j=0;
-        for(int i=n-k;i<nums.length;i++){
-            res[j++]=nums[i];
-        }
-        for(int i=0;i<n-k;i++){
-            res[j++]=nums[i];
-        }
+      reverse(nums,0,nums.length);
 
-        System.out.println(Arrays.toString(res));
-
-        for(int i=0;i<n;i++){
-            nums[i]=res[i];
-        }
+        reverse(nums,0,k);
+        reverse(nums,k,nums.length);
         
     }
 }
