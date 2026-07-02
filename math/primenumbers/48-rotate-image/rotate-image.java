@@ -4,20 +4,15 @@ class Solution {
         matrix[i][j]=matrix[j][i];
         matrix[j][i]=temp;
     }
-    private static void swapall(int[][] matrix,int i,int j,int r,int c){
-        int temp=matrix[i][j];
-        matrix[i][j]=matrix[r][c];
-        matrix[r][c]=temp;
-    }
 
-    private static void reverse(int[][] matrix,int i,int j){
-        int left=0;
-        int right=j;
+    private static void reverse(int[] matrix,int i,int j){
 
-            while(left<right){
-                swapall(matrix,i,left,i,right);
-                left++;
-                right--;
+            while(i<j){
+                int temp=matrix[i];
+                matrix[i]=matrix[j];
+                matrix[j]=temp;
+                i++;
+                j--;
             }
     }
     public void rotate(int[][] matrix) {
@@ -33,7 +28,7 @@ class Solution {
 
 
         for(int i=0;i<n;i++){
-            reverse(matrix,i,n-1);
+            reverse(matrix[i],0,n-1);
         }
 
        
