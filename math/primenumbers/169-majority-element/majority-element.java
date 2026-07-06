@@ -17,8 +17,17 @@ class Solution {
             }
         }
 
-        
-return candidate;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==candidate){
+                cnt++;
+            }
+        }
+
+        if(cnt>nums.length/2){
+            return candidate;
+        }
+
+return -1;
 
         
     }
