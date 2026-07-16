@@ -9,8 +9,6 @@ class Solution {
             arr[s.charAt(i)-'a']=i;
         }
 
-
-        System.out.println(Arrays.toString(arr));
         int start =0;
         int end=0;
 
